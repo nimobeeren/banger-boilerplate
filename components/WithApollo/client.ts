@@ -9,7 +9,6 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
 // Polyfill fetch() on the server (used by apollo-client)
 if (!process.browser) {
-  // @ts-ignore FIXME
   global.fetch = require("isomorphic-unfetch");
 }
 
