@@ -2,17 +2,14 @@ import Head from "next/head";
 import { useQuery } from "react-apollo";
 import gql from "graphql-tag";
 
-const GET_POST = gql`
+const GET_HELLO = gql`
   query {
-    post(postId: 1) {
-      id
-      title
-    }
+    hello
   }
 `;
 
 export default function Home() {
-  const { data, loading, error } = useQuery(GET_POST);
+  const { data, loading, error } = useQuery(GET_HELLO);
   if (error) {
     console.error(error);
   }

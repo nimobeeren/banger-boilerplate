@@ -16,19 +16,18 @@ if (!isBrowser) {
 
 function create(
   initialState?: NormalizedCacheObject,
-  _cookie?: string,
-  _host?: string
+  cookie?: string,
+  host?: string
 ) {
   return new ApolloClient({
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
-      // uri: `${host || ""}/api/graphql`,
-      uri: "https://api.graphqlplaceholder.com/",
-      // credentials: "include",
-      // headers: cookie && {
-      //   Cookie: cookie,
-      // },
+      uri: `${host || ""}/api/graphql`,
+      credentials: "include",
+      headers: cookie && {
+        Cookie: cookie,
+      },
     }),
     cache: new InMemoryCache().restore(initialState || {}),
   });
