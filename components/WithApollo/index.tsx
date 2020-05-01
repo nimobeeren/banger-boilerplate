@@ -40,7 +40,7 @@ export default (App: {
         cookie,
         `${process.env.NODE_ENV === "development" ? "http" : "https"}://${host}`
       );
-      if (!process.browser) {
+      if (typeof window === 'undefined') {
         try {
           // Run all GraphQL queries
           await getDataFromTree(

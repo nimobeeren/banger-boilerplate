@@ -8,7 +8,9 @@ import {
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
 // Polyfill fetch() on the server (used by apollo-client)
-if (!process.browser) {
+// See: https://github.com/zeit/next.js/issues/2177#issuecomment-536178575
+const isBrowser = typeof window !== "undefined";
+if (!isBrowser) {
   global.fetch = require("isomorphic-unfetch");
 }
 
@@ -18,8 +20,8 @@ function create(
   _host?: string
 ) {
   return new ApolloClient({
-    connectToDevTools: process.browser,
-    ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
+    connectToDevTools: isBrowser,
+    ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
       // uri: `${host || ""}/api/graphql`,
       uri: "https://api.graphqlplaceholder.com/",
@@ -39,7 +41,7 @@ export function getClient(
 ) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections
-  if (!process.browser) {
+  if (typeof window === "undefined") {
     return create(initialState, cookie, host);
   }
 
