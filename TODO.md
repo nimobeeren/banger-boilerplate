@@ -1,0 +1,1 @@
+- add support for GraphQL subscriptions (will need to migrate from graphql-boost)
