@@ -1,13 +1,8 @@
 import express from "express";
-import { ApolloServer, gql } from "apollo-server-express";
+import { ApolloServer } from "apollo-server-express";
+import typeDefs from "../../graphql/schema";
 
 const app = express();
-
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
 
 const resolvers = {
   Query: {
