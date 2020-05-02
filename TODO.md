@@ -1,1 +1,4 @@
+- linting (also generated)
+- typing resolvers (graphql nexus)
+- typing database (prisma)
 - add support for GraphQL subscriptions (will need to migrate from graphql-boost)
