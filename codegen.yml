@@ -4,6 +4,7 @@ generates:
   graphql/types.generated.ts:
     plugins:
       - add: |
+          /* eslint-disable */
           /*
            * This is GENERATED CODE, do not modify!
            *

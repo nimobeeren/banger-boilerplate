@@ -11,6 +11,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 // See: https://github.com/zeit/next.js/issues/2177#issuecomment-536178575
 const isBrowser = typeof window !== "undefined";
 if (!isBrowser) {
+  // eslint-disable-next-line global-require
   global.fetch = require("isomorphic-unfetch");
 }
 

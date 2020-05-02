@@ -1,7 +1,7 @@
 import React from "react";
 import App from "next/app";
-import withApollo, { ApolloAppProps } from "../components/WithApollo";
 import { ApolloProvider } from "react-apollo";
+import withApollo, { ApolloAppProps } from "../components/WithApollo";
 
 class MyApp extends App<ApolloAppProps> {
   render() {

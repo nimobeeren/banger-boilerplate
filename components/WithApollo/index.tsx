@@ -1,10 +1,13 @@
 import React from "react";
-import { getClient } from "./client";
+import AppComponentType, {
+  AppContext,
+  AppProps,
+  AppInitialProps,
+} from "next/app";
 import Head from "next/head";
-import { default as AppComponentType } from "next/app";
-import { AppContext, AppProps, AppInitialProps } from "next/app";
 import { getDataFromTree } from "react-apollo";
 import { ApolloClient, NormalizedCacheObject } from "apollo-boost";
+import { getClient } from "./client";
 
 export interface ApolloAppProps extends AppProps, AppInitialProps {
   apolloClient: ApolloClient<NormalizedCacheObject>;
@@ -17,8 +20,11 @@ export default (App: {
   getInitialProps: Function;
 }) => {
   return class Apollo extends React.Component<ApolloAppProps> {
+    // eslint-disable-next-line react/static-property-placement
     static displayName = "withApollo(App)";
+
     apolloClient: ApolloClient<NormalizedCacheObject>;
+
     static async getInitialProps(ctx: AppContext) {
       const {
         Component,
@@ -40,14 +46,13 @@ export default (App: {
         cookie,
         `${process.env.NODE_ENV === "development" ? "http" : "https"}://${host}`
       );
-      if (typeof window === 'undefined') {
+      if (typeof window === "undefined") {
         try {
           // Run all GraphQL queries
           await getDataFromTree(
             <App
               pageProps={{}}
               {...appProps}
-              // @ts-ignore
               Component={Component}
               router={router}
               apolloClient={apollo}
@@ -81,7 +86,6 @@ export default (App: {
     }
 
     render() {
-      // @ts-ignore
       return <App {...this.props} apolloClient={this.apolloClient} />;
     }
   };
