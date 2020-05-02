@@ -1,5 +1,19 @@
-schema: ./graphql/schema.ts
+schema: graphql/schema.ts
+documents: "graphql/**/*.graphql"
 generates:
-  ./graphql/generated/types.ts:
+  graphql/types.generated.ts:
     plugins:
+      - add: |
+          /*
+           * This is GENERATED CODE, do not modify!
+           *
+           * Here we provide TypeScript types and utilities for the GraphQL schema.
+           * When you make changes to your GraphQL schema, you should regenerate this file using `yarn generate`.
+           */
       - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHOC: false
+      withComponent: false
+      withHooks: true
