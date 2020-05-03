@@ -22,6 +22,7 @@ export type Scalars = {
 
 export type Query = {
    __typename?: 'Query';
+  foo: Scalars['String'];
   hello: Scalars['String'];
 };
 

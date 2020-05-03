@@ -6,14 +6,17 @@ const Query = queryType({
     t.string("hello", {
       resolve: () => "Hello world!",
     });
+    t.string("foo", {
+      resolve: () => "bar",
+    });
   },
 });
 
 const schema = makeSchema({
   types: [Query],
   outputs: {
-    schema: path.join(__dirname, "./schema.generated.graphql"),
-    typegen: path.join(__dirname, "./nexus-schema-types.generated.ts"),
+    schema: path.join(__dirname, "../generated/schema.graphql"),
+    typegen: false, // we use graphql-codegen's types instead
   },
 });
 

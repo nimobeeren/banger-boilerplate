@@ -1,7 +1,7 @@
-schema: graphql/schema.generated.graphql
+schema: graphql/generated/schema.graphql
 documents: "graphql/**/*.graphql"
 generates:
-  graphql/types.generated.ts:
+  graphql/generated/types.ts:
     plugins:
       - add: |
           /* eslint-disable */

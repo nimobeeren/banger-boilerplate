@@ -1,5 +1,5 @@
-- generate:schema without --skip-project
-- dev scripts for generate
-- reorganize generated code
+- fix mkdir error (seems to be caused by schema/index.ts)
+- move operations to subdir
+- use generated hooks
 - typing database (prisma)
 - add support for GraphQL subscriptions (will need to migrate from graphql-boost)
