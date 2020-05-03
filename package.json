@@ -6,8 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "generate": "graphql-codegen",
-    "lint": "eslint . --ext js,ts,tsx"
+    "generate": "yarn generate:schema && yarn generate:web",
+    "generate:web": "graphql-codegen",
+    "generate:schema": "ts-node --skip-project graphql/schema.ts",
+    "lint": "eslint . --ext js,ts,tsx",
+    "postinstall": "yarn generate"
   },
   "dependencies": {
     "@graphql-codegen/add": "^1.13.4",
@@ -43,6 +46,7 @@
     "react": "16.13.1",
     "react-apollo": "^3.1.5",
     "react-dom": "16.13.1",
+    "ts-node": "^8.10.1",
     "typescript": "^3.8.3"
   }
 }

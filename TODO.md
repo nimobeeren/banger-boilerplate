@@ -1,3 +1,5 @@
-- (auto) generate schema (and types?) with nexus
+- generate:schema without --skip-project
+- dev scripts for generate
+- reorganize generated code
 - typing database (prisma)
 - add support for GraphQL subscriptions (will need to migrate from graphql-boost)
