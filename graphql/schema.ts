@@ -1,7 +1,20 @@
-import gql from "graphql-tag";
+import path from "path";
+import { queryType, makeSchema } from "@nexus/schema";
 
-export default gql`
-  type Query {
-    hello: String
-  }
-`;
+const Query = queryType({
+  definition(t) {
+    t.string("hello", {
+      resolve: () => "Hello world!",
+    });
+  },
+});
+
+const schema = makeSchema({
+  types: [Query],
+  outputs: {
+    schema: path.join(__dirname, "./schema.generated.graphql"),
+    typegen: path.join(__dirname, "./nexus-schema-types.generated.ts"),
+  },
+});
+
+export default schema;

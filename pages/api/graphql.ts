@@ -1,18 +1,11 @@
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
-import typeDefs from "../../graphql/schema";
+import schema from "../../graphql/schema";
 
 const app = express();
 
-const resolvers = {
-  Query: {
-    hello: () => "Hello world!",
-  },
-};
-
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema,
   introspection: true,
   playground: true,
 });

@@ -1,3 +1,3 @@
-- typing resolvers (graphql nexus)
+- (auto) generate schema (and types?) with nexus
 - typing database (prisma)
 - add support for GraphQL subscriptions (will need to migrate from graphql-boost)
