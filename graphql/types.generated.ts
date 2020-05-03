@@ -22,7 +22,7 @@ export type Scalars = {
 
 export type Query = {
    __typename?: 'Query';
-  hello?: Maybe<Scalars['String']>;
+  hello: Scalars['String'];
 };
 
 export type HelloQueryVariables = {};
