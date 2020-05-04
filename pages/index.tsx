@@ -1,15 +1,8 @@
 import Head from "next/head";
-import { useQuery } from "react-apollo";
-import gql from "graphql-tag";
-
-const GET_HELLO = gql`
-  query {
-    hello
-  }
-`;
+import { useHelloQuery } from "../graphql/generated/types";
 
 export default function Home() {
-  const { data, loading, error } = useQuery(GET_HELLO);
+  const { data, loading, error } = useHelloQuery();
   if (error) {
     console.error(error);
   }
