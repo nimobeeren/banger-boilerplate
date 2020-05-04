@@ -1,7 +1,10 @@
 features
 
-- typing database (prisma)
+- scripts for prisma generate
+- connect db to graphql (nexus-prisma)
+- better data model to serve as example
 - add support for GraphQL subscriptions (will need to migrate from graphql-boost)
+- auth?
 
 bugs
 
