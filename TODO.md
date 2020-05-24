@@ -1,8 +1,9 @@
 features
 
+- possible to generate database from prisma schema? (prisma migrate)
 - connect db to graphql (nexus-prisma)
 - better data model to serve as example
-- add support for GraphQL subscriptions (will need to migrate from graphql-boost)
+- add prisma client to VCS? (possible?)
 - auth?
 
 bugs
