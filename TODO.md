@@ -1,6 +1,5 @@
 features
 
-- remove isomorphic-fetch
 - possible to generate database from prisma schema? (prisma migrate)
 - connect db to graphql (nexus-prisma)
 - better data model to serve as example
