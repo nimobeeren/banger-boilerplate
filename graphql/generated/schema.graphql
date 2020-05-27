@@ -2,7 +2,18 @@
 ### Do not make changes to this file directly
 
 
+type Post {
+  authorId: ID!
+  id: ID!
+  title: String!
+}
+
 type Query {
-  foo: String!
-  hello: String!
+  posts: [Post!]!
+  users: [User!]!
+}
+
+type User {
+  id: ID!
+  name: String!
 }

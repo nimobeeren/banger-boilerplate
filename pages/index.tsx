@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { withApollo } from "../lib/apollo";
-import { useHelloQuery } from "../graphql/generated/types";
+import { usePostsQuery } from "../graphql/generated/types";
 
 function Home() {
-  const { data, loading, error } = useHelloQuery();
+  const { data, loading, error } = usePostsQuery();
   if (error) {
     console.error(error);
   }
