@@ -1,16 +1,7 @@
-import express from "express";
-import { ApolloServer } from "apollo-server-express";
+import { ApolloServer } from "apollo-server-micro";
 import schema from "../../graphql/schema";
 
-const app = express();
-
-const server = new ApolloServer({
-  schema,
-  introspection: true,
-  playground: true,
-});
-
-server.applyMiddleware({ app, path: "*" });
+const apolloServer = new ApolloServer({ schema });
 
 export const config = {
   api: {
@@ -18,4 +9,4 @@ export const config = {
   },
 };
 
-export default app;
+export default apolloServer.createHandler({ path: "/api/graphql" });

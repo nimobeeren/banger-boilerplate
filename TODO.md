@@ -6,7 +6,3 @@ features
 - better data model to serve as example
 - add prisma client to VCS? (possible?) or use checkout hooks
 - auth?
-
-bugs
-
-- fix/opt out of stalled request warning https://github.com/zeit/next.js/issues/10439#issuecomment-615095270
