@@ -1,6 +1,6 @@
 // @ts-nocheck
 // Adapted from: https://github.com/zeit/next.js/blob/61ace6ca03c1c683eb80f5df9bb07efe92f0bbb5/examples/with-apollo/lib/apollo.js
-// on 2020-05-27
+// - changed import path of `createApolloClient`
 
 import App from "next/app";
 import Head from "next/head";
