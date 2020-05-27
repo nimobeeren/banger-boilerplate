@@ -5,7 +5,7 @@ import { NextPageContext } from "next";
 
 export default function createApolloClient(
   initialState: NormalizedCacheObject,
-  ctx: NextPageContext
+  ctx?: NextPageContext
 ) {
   // The `ctx` (NextPageContext) will only be present on the server.
   // use it to extract auth headers (ctx.req) or similar.
