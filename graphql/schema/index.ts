@@ -1,4 +1,5 @@
 import * as path from "path";
+import { nexusPrismaPlugin } from "nexus-prisma";
 import { objectType, queryType, makeSchema } from "@nexus/schema";
 
 const Query = queryType({
@@ -35,6 +36,7 @@ const Post = objectType({
 
 const schema = makeSchema({
   types: [Query, User, Post],
+  plugins: [nexusPrismaPlugin()],
   outputs: {
     schema: path.join(__dirname, "../generated/schema.graphql"),
   },
