@@ -16,8 +16,8 @@ const schema = makeSchema({
   types: [Query],
   outputs: {
     schema: path.join(__dirname, "../generated/schema.graphql"),
-    typegen: false, // we use graphql-codegen's types instead
   },
+  shouldGenerateArtifacts: !!process.env.GENERATE,
 });
 
 export default schema;
