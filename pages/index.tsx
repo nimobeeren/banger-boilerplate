@@ -1,7 +1,8 @@
 import Head from "next/head";
+import { withApollo } from "../lib/apollo";
 import { useHelloQuery } from "../graphql/generated/types";
 
-export default function Home() {
+function Home() {
   const { data, loading, error } = useHelloQuery();
   if (error) {
     console.error(error);
@@ -37,3 +38,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default withApollo({ ssr: true })(Home);
