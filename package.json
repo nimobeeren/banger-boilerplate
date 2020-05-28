@@ -6,7 +6,7 @@
     "dev": "concurrently -n next,generate 'next dev' 'yarn:watch:*'",
     "generate": "yarn generate:prisma && yarn generate:schema && yarn generate:web",
     "generate:prisma": "prisma generate",
-    "generate:schema": "cross-env GENERATE=true ts-node --skip-project graphql/schema/index.ts",
+    "generate:schema": "cross-env GENERATE=true ts-node --transpile-only --skip-project graphql/schema/index.ts",
     "generate:web": "graphql-codegen",
     "watch": "concurrently 'yarn:watch:*'",
     "watch:prisma": "yarn generate:prisma --watch",

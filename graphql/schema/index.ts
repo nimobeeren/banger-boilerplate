@@ -4,41 +4,28 @@ import { objectType, queryType, makeSchema } from "@nexus/schema";
 
 const Query = queryType({
   definition(t) {
-    t.list.field("users", {
-      type: User,
-      // TODO: get from db
-      resolve: () => [{ id: 1, name: "John" }],
-    });
-    t.list.field("posts", {
-      type: Post,
-      // TODO: get from db
-      resolve: () => [{ id: 100, title: "Top 7 Facts", authorId: 1 }],
-    });
+    t.crud.todos();
   },
 });
 
-const User = objectType({
-  name: "User",
+const Todo = objectType({
+  name: "Todo",
   definition(t) {
-    t.id("id");
-    t.string("name");
-  },
-});
-
-const Post = objectType({
-  name: "Post",
-  definition(t) {
-    t.id("id");
-    t.string("title");
-    t.id("authorId");
+    t.model.id();
+    t.model.title();
+    t.model.done();
   },
 });
 
 const schema = makeSchema({
-  types: [Query, User, Post],
+  types: [Query, Todo],
   plugins: [nexusPrismaPlugin()],
   outputs: {
     schema: path.join(__dirname, "../generated/schema.graphql"),
+    typegen: path.join(
+      __dirname,
+      "../../node_modules/@types/nexus-typegen/index.d.ts"
+    ),
   },
   shouldGenerateArtifacts: !!process.env.GENERATE,
 });

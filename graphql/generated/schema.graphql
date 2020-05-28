@@ -2,18 +2,16 @@
 ### Do not make changes to this file directly
 
 
-type Post {
-  authorId: ID!
-  id: ID!
+type Query {
+  todos(after: TodoWhereUniqueInput, before: TodoWhereUniqueInput, first: Int, last: Int, skip: Int): [Todo!]!
+}
+
+type Todo {
+  done: Boolean!
+  id: Int!
   title: String!
 }
 
-type Query {
-  posts: [Post!]!
-  users: [User!]!
-}
-
-type User {
-  id: ID!
-  name: String!
+input TodoWhereUniqueInput {
+  id: Int
 }
