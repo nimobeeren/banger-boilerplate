@@ -20,48 +20,108 @@ export type Scalars = {
   Float: number;
 };
 
-export type Query = {
-  __typename?: 'Query';
-  foo: Scalars['String'];
-  hello: Scalars['String'];
+export type Mutation = {
+  __typename?: 'Mutation';
+  createOneTodo: Todo;
+  deleteOneTodo?: Maybe<Todo>;
+  updateOneTodo?: Maybe<Todo>;
 };
 
-export type HelloQueryVariables = {};
+
+export type MutationCreateOneTodoArgs = {
+  data: TodoCreateInput;
+};
 
 
-export type HelloQuery = (
+export type MutationDeleteOneTodoArgs = {
+  where: TodoWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneTodoArgs = {
+  data: TodoUpdateInput;
+  where: TodoWhereUniqueInput;
+};
+
+export type Query = {
+  __typename?: 'Query';
+  todos: Array<Todo>;
+};
+
+
+export type QueryTodosArgs = {
+  after?: Maybe<TodoWhereUniqueInput>;
+  before?: Maybe<TodoWhereUniqueInput>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  skip?: Maybe<Scalars['Int']>;
+};
+
+export type Todo = {
+  __typename?: 'Todo';
+  done: Scalars['Boolean'];
+  id: Scalars['Int'];
+  title: Scalars['String'];
+};
+
+export type TodoCreateInput = {
+  done: Scalars['Boolean'];
+  title: Scalars['String'];
+};
+
+export type TodoUpdateInput = {
+  done?: Maybe<Scalars['Boolean']>;
+  id?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type TodoWhereUniqueInput = {
+  id?: Maybe<Scalars['Int']>;
+};
+
+export type TodosQueryVariables = {};
+
+
+export type TodosQuery = (
   { __typename?: 'Query' }
-  & Pick<Query, 'hello'>
+  & { todos: Array<(
+    { __typename?: 'Todo' }
+    & Pick<Todo, 'id' | 'title' | 'done'>
+  )> }
 );
 
 
-export const HelloDocument = gql`
-    query Hello {
-  hello
+export const TodosDocument = gql`
+    query Todos {
+  todos {
+    id
+    title
+    done
+  }
 }
     `;
 
 /**
- * __useHelloQuery__
+ * __useTodosQuery__
  *
- * To run a query within a React component, call `useHelloQuery` and pass it any options that fit your needs.
- * When your component renders, `useHelloQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useTodosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTodosQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useHelloQuery({
+ * const { data, loading, error } = useTodosQuery({
  *   variables: {
  *   },
  * });
  */
-export function useHelloQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<HelloQuery, HelloQueryVariables>) {
-        return ApolloReactHooks.useQuery<HelloQuery, HelloQueryVariables>(HelloDocument, baseOptions);
+export function useTodosQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<TodosQuery, TodosQueryVariables>) {
+        return ApolloReactHooks.useQuery<TodosQuery, TodosQueryVariables>(TodosDocument, baseOptions);
       }
-export function useHelloLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<HelloQuery, HelloQueryVariables>) {
-          return ApolloReactHooks.useLazyQuery<HelloQuery, HelloQueryVariables>(HelloDocument, baseOptions);
+export function useTodosLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<TodosQuery, TodosQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<TodosQuery, TodosQueryVariables>(TodosDocument, baseOptions);
         }
-export type HelloQueryHookResult = ReturnType<typeof useHelloQuery>;
-export type HelloLazyQueryHookResult = ReturnType<typeof useHelloLazyQuery>;
-export type HelloQueryResult = ApolloReactCommon.QueryResult<HelloQuery, HelloQueryVariables>;
+export type TodosQueryHookResult = ReturnType<typeof useTodosQuery>;
+export type TodosLazyQueryHookResult = ReturnType<typeof useTodosLazyQuery>;
+export type TodosQueryResult = ApolloReactCommon.QueryResult<TodosQuery, TodosQueryVariables>;
