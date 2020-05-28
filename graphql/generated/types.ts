@@ -89,7 +89,7 @@ export type SetDoneMutation = (
   { __typename?: 'Mutation' }
   & { updateOneTodo?: Maybe<(
     { __typename?: 'Todo' }
-    & Pick<Todo, 'id'>
+    & Pick<Todo, 'id' | 'done'>
   )> }
 );
 
@@ -109,6 +109,7 @@ export const SetDoneDocument = gql`
     mutation SetDone($id: Int!, $done: Boolean!) {
   updateOneTodo(where: {id: $id}, data: {done: $done}) {
     id
+    done
   }
 }
     `;

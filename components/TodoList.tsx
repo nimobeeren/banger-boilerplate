@@ -16,7 +16,6 @@ export const TodoList: React.FC = () => {
     <ul>
       {data.todos.map((todo) => (
         <li key={todo.id} className={todo.done ? "done" : ""}>
-          <span>{todo.title}</span>
           <button
             onClick={() =>
               setDone({
@@ -29,6 +28,7 @@ export const TodoList: React.FC = () => {
           >
             {todo.done ? "❎" : "✅"}
           </button>
+          <span>{todo.title}</span>
         </li>
       ))}
     </ul>

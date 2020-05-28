@@ -1,5 +1,6 @@
 mutation SetDone($id: Int!, $done: Boolean!) {
   updateOneTodo(where: { id: $id }, data: { done: $done }) {
     id
+    done
   }
 }
