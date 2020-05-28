@@ -1,0 +1,5 @@
+{
+  "events": {
+    "restart": "echo 'Generating GraphQL schema arifacts'"
+  }
+}

@@ -10,7 +10,7 @@
     "generate:web": "graphql-codegen",
     "watch": "concurrently 'yarn:watch:*'",
     "watch:prisma": "yarn generate:prisma --watch",
-    "watch:nexus": "nodemon -w graphql/schema -e ts -x 'yarn generate:nexus'",
+    "watch:nexus": "nodemon -q -w graphql/schema -e ts -x 'yarn generate:nexus'",
     "watch:web": "yarn generate:web --watch",
     "build": "next build",
     "start": "next start",
