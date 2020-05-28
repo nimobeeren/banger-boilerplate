@@ -1,3 +1,9 @@
+mutation CreateTodo($title: String!) {
+  createOneTodo(data: { title: $title, done: false }) {
+    id
+  }
+}
+
 mutation SetDone($id: Int!, $done: Boolean!) {
   updateOneTodo(where: { id: $id }, data: { done: $done }) {
     id
