@@ -3,12 +3,12 @@ import { useTodosQuery } from "../graphql/generated/types";
 export const TodoList: React.FC = () => {
   const { data, loading, error } = useTodosQuery();
 
-  if (loading || !data) {
-    return <p>Loading...</p>;
+  if (error) {
+    return <p>{`🚨 ${error.message}`}</p>;
   }
 
-  if (error) {
-    return <pre>{error}</pre>;
+  if (loading || !data) {
+    return <p>Loading...</p>;
   }
 
   return (
