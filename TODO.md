@@ -1,5 +1,6 @@
 features
 
 - little bit of UI
+- graphql config for autocomplete in .graphql files
 - add prisma client to VCS? (possible?) or use checkout hooks
 - auth?

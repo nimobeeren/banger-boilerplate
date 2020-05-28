@@ -28,6 +28,10 @@ function Home() {
           * {
             box-sizing: border-box;
           }
+
+          .done {
+            text-decoration: line-through;
+          }
         `}
       </style>
     </div>

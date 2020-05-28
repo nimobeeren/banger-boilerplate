@@ -1,7 +1,8 @@
-import { useTodosQuery } from "../graphql/generated/types";
+import { useTodosQuery, useSetDoneMutation } from "../graphql/generated/types";
 
 export const TodoList: React.FC = () => {
   const { data, loading, error } = useTodosQuery();
+  const [setDone] = useSetDoneMutation();
 
   if (error) {
     return <p>{`🚨 ${error.message}`}</p>;
@@ -14,7 +15,21 @@ export const TodoList: React.FC = () => {
   return (
     <ul>
       {data.todos.map((todo) => (
-        <li key={todo.id}>{todo.title}</li>
+        <li key={todo.id} className={todo.done ? "done" : ""}>
+          <span>{todo.title}</span>
+          <button
+            onClick={() =>
+              setDone({
+                variables: {
+                  id: todo.id,
+                  done: !todo.done,
+                },
+              })
+            }
+          >
+            {todo.done ? "❎" : "✅"}
+          </button>
+        </li>
       ))}
     </ul>
   );

@@ -79,6 +79,20 @@ export type TodoWhereUniqueInput = {
   id?: Maybe<Scalars['Int']>;
 };
 
+export type SetDoneMutationVariables = {
+  id: Scalars['Int'];
+  done: Scalars['Boolean'];
+};
+
+
+export type SetDoneMutation = (
+  { __typename?: 'Mutation' }
+  & { updateOneTodo?: Maybe<(
+    { __typename?: 'Todo' }
+    & Pick<Todo, 'id'>
+  )> }
+);
+
 export type TodosQueryVariables = {};
 
 
@@ -91,6 +105,39 @@ export type TodosQuery = (
 );
 
 
+export const SetDoneDocument = gql`
+    mutation SetDone($id: Int!, $done: Boolean!) {
+  updateOneTodo(where: {id: $id}, data: {done: $done}) {
+    id
+  }
+}
+    `;
+export type SetDoneMutationFn = ApolloReactCommon.MutationFunction<SetDoneMutation, SetDoneMutationVariables>;
+
+/**
+ * __useSetDoneMutation__
+ *
+ * To run a mutation, you first call `useSetDoneMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSetDoneMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [setDoneMutation, { data, loading, error }] = useSetDoneMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      done: // value for 'done'
+ *   },
+ * });
+ */
+export function useSetDoneMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<SetDoneMutation, SetDoneMutationVariables>) {
+        return ApolloReactHooks.useMutation<SetDoneMutation, SetDoneMutationVariables>(SetDoneDocument, baseOptions);
+      }
+export type SetDoneMutationHookResult = ReturnType<typeof useSetDoneMutation>;
+export type SetDoneMutationResult = ApolloReactCommon.MutationResult<SetDoneMutation>;
+export type SetDoneMutationOptions = ApolloReactCommon.BaseMutationOptions<SetDoneMutation, SetDoneMutationVariables>;
 export const TodosDocument = gql`
     query Todos {
   todos {
