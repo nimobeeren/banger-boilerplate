@@ -2,6 +2,12 @@
 ### Do not make changes to this file directly
 
 
+type Mutation {
+  createOneTodo(data: TodoCreateInput!): Todo!
+  deleteOneTodo(where: TodoWhereUniqueInput!): Todo
+  updateOneTodo(data: TodoUpdateInput!, where: TodoWhereUniqueInput!): Todo
+}
+
 type Query {
   todos(after: TodoWhereUniqueInput, before: TodoWhereUniqueInput, first: Int, last: Int, skip: Int): [Todo!]!
 }
@@ -10,6 +16,17 @@ type Todo {
   done: Boolean!
   id: Int!
   title: String!
+}
+
+input TodoCreateInput {
+  done: Boolean!
+  title: String!
+}
+
+input TodoUpdateInput {
+  done: Boolean
+  id: Int
+  title: String
 }
 
 input TodoWhereUniqueInput {

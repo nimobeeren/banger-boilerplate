@@ -1,10 +1,18 @@
 import * as path from "path";
 import { nexusPrismaPlugin } from "nexus-prisma";
-import { objectType, queryType, makeSchema } from "@nexus/schema";
+import { objectType, queryType, makeSchema, mutationType } from "@nexus/schema";
 
 const Query = queryType({
   definition(t) {
     t.crud.todos();
+  },
+});
+
+const Mutation = mutationType({
+  definition(t) {
+    t.crud.createOneTodo();
+    t.crud.updateOneTodo();
+    t.crud.deleteOneTodo();
   },
 });
 
@@ -18,7 +26,7 @@ const Todo = objectType({
 });
 
 const schema = makeSchema({
-  types: [Query, Todo],
+  types: [Query, Mutation, Todo],
   plugins: [nexusPrismaPlugin()],
   outputs: {
     schema: path.join(__dirname, "../generated/schema.graphql"),

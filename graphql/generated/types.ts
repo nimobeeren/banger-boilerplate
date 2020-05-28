@@ -20,6 +20,29 @@ export type Scalars = {
   Float: number;
 };
 
+export type Mutation = {
+  __typename?: 'Mutation';
+  createOneTodo: Todo;
+  deleteOneTodo?: Maybe<Todo>;
+  updateOneTodo?: Maybe<Todo>;
+};
+
+
+export type MutationCreateOneTodoArgs = {
+  data: TodoCreateInput;
+};
+
+
+export type MutationDeleteOneTodoArgs = {
+  where: TodoWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneTodoArgs = {
+  data: TodoUpdateInput;
+  where: TodoWhereUniqueInput;
+};
+
 export type Query = {
   __typename?: 'Query';
   todos: Array<Todo>;
@@ -39,6 +62,17 @@ export type Todo = {
   done: Scalars['Boolean'];
   id: Scalars['Int'];
   title: Scalars['String'];
+};
+
+export type TodoCreateInput = {
+  done: Scalars['Boolean'];
+  title: Scalars['String'];
+};
+
+export type TodoUpdateInput = {
+  done?: Maybe<Scalars['Boolean']>;
+  id?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type TodoWhereUniqueInput = {
