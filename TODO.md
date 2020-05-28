@@ -1,8 +1,8 @@
 features
 
-- connect db to graphql (nexus-prisma)
+- add crud
+- little bit of UI
 - possible to generate database from prisma schema? (prisma migrate)
 - consider renaming package scripts (schema -> nexus)
-- little bit of UI
 - add prisma client to VCS? (possible?) or use checkout hooks
 - auth?

@@ -7,6 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model hello {
-  world String @id
+model Todos {
+  done    Boolean?
+  title   String
+  todo_id Int      @default(autoincrement()) @id
 }
