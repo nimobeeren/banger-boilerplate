@@ -1,13 +1,8 @@
 import Head from "next/head";
 import { withApollo } from "../lib/apollo";
-import { usePostsQuery } from "../graphql/generated/types";
+import { TodoList } from "../components/TodoList";
 
 function Home() {
-  const { data, loading, error } = usePostsQuery();
-  if (error) {
-    console.error(error);
-  }
-
   return (
     <div>
       <Head>
@@ -16,7 +11,7 @@ function Home() {
       </Head>
 
       <main>
-        {loading ? <p>Loading...</p> : <pre>{JSON.stringify(data)}</pre>}
+        <TodoList />
       </main>
 
       <style jsx global>
