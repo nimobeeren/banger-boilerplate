@@ -1630,10 +1630,10 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@prisma/cli@2.0.0-beta.4":
-  version "2.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@prisma/cli/-/cli-2.0.0-beta.4.tgz#4989dab626ba5de0591af1a14f423db4838a5e8c"
-  integrity sha512-z9si4cmn/dN7bxVx3hbdDFL6fQuosTzj45EhVrCYt6VCWcJ5jYn0Fzamr+npZvbR/Gl6eLhexXP1sa7iGe8gjA==
+"@prisma/cli@^2.0.0-beta.6":
+  version "2.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@prisma/cli/-/cli-2.0.0-beta.6.tgz#fec992901c20b0b421b5de9ba02f27ec216209c5"
+  integrity sha512-qawcjLN5c26T+IVZij5WjQocfsV6b1BtJIL3CqMQfMkDCNGo/zXsu+NB+uyZ+QRqctEuJQ36lemnY44+k6L8XA==
 
 "@prisma/client@2.0.0-beta.4":
   version "2.0.0-beta.4"
