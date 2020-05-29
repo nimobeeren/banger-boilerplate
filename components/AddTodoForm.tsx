@@ -24,6 +24,7 @@ export function AddTodoForm() {
             title,
           },
         });
+        setTitle("");
       }}
     >
       <input
