@@ -1,5 +1,5 @@
 schema: graphql/generated/schema.graphql
-documents: "graphql/operations/**/*.graphql"
+documents: "graphql/documents/**/*.graphql"
 generates:
   graphql/generated/types.ts:
     plugins:
