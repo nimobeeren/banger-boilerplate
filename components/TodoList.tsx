@@ -5,7 +5,7 @@ export function TodoList() {
   const [setDone] = useSetDoneMutation();
 
   if (error) {
-    return <p>{`🚨 ${error.message}`}</p>;
+    return <pre>{`🚨 ${error.message}`}</pre>;
   }
 
   if (loading || !data) {
@@ -26,9 +26,9 @@ export function TodoList() {
               })
             }
           >
-            {todo.done ? "❎" : "✅"}
+            {todo.done ? "X" : "V"}
           </button>
-          <span> {todo.title}</span>
+          <span>{todo.title}</span>
         </li>
       ))}
     </ul>

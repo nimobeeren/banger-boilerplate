@@ -34,7 +34,7 @@ export function AddTodoForm() {
         placeholder="Build an app...."
         onChange={(e) => setTitle(e.target.value)}
       />
-      <button type="submit">➕</button>
+      <button type="submit">+</button>
     </form>
   );
 }
