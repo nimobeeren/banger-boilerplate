@@ -80,9 +80,9 @@ export type AddTodoMutationVariables = {
 
 export type AddTodoMutation = (
   { __typename?: 'Mutation' }
-  & { createOneTodo: (
+  & { addTodo: (
     { __typename?: 'Todo' }
-    & Pick<Todo, 'id'>
+    & Pick<Todo, 'id' | 'title' | 'done'>
   ) }
 );
 
@@ -94,7 +94,7 @@ export type SetDoneMutationVariables = {
 
 export type SetDoneMutation = (
   { __typename?: 'Mutation' }
-  & { updateOneTodo?: Maybe<(
+  & { setDone?: Maybe<(
     { __typename?: 'Todo' }
     & Pick<Todo, 'id' | 'done'>
   )> }
@@ -114,8 +114,10 @@ export type TodosQuery = (
 
 export const AddTodoDocument = gql`
     mutation AddTodo($title: String!) {
-  createOneTodo(data: {title: $title, done: false}) {
+  addTodo: createOneTodo(data: {title: $title, done: false}) {
     id
+    title
+    done
   }
 }
     `;
@@ -146,7 +148,7 @@ export type AddTodoMutationResult = ApolloReactCommon.MutationResult<AddTodoMuta
 export type AddTodoMutationOptions = ApolloReactCommon.BaseMutationOptions<AddTodoMutation, AddTodoMutationVariables>;
 export const SetDoneDocument = gql`
     mutation SetDone($id: Int!, $done: Boolean!) {
-  updateOneTodo(where: {id: $id}, data: {done: $done}) {
+  setDone: updateOneTodo(where: {id: $id}, data: {done: $done}) {
     id
     done
   }

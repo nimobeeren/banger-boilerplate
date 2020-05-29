@@ -4,11 +4,15 @@ import { useState } from "react";
 export function AddTodoForm() {
   const [title, setTitle] = useState("");
   const [addTodo] = useAddTodoMutation({
-    refetchQueries: [
-      {
-        query: TodosDocument,
-      },
-    ],
+    update: (cache, { data }) => {
+      if (data) {
+        const { todos } = cache.readQuery({ query: TodosDocument }) || {};
+        cache.writeQuery({
+          query: TodosDocument,
+          data: { todos: [...todos, data.addTodo] },
+        });
+      }
+    },
   });
 
   return (

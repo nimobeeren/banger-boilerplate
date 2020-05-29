@@ -1,11 +1,13 @@
 mutation AddTodo($title: String!) {
-  createOneTodo(data: { title: $title, done: false }) {
+  addTodo: createOneTodo(data: { title: $title, done: false }) {
     id
+    title
+    done
   }
 }
 
 mutation SetDone($id: Int!, $done: Boolean!) {
-  updateOneTodo(where: { id: $id }, data: { done: $done }) {
+  setDone: updateOneTodo(where: { id: $id }, data: { done: $done }) {
     id
     done
   }
