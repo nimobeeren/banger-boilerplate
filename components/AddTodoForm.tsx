@@ -1,5 +1,5 @@
-import { useAddTodoMutation, TodosDocument } from "../graphql/generated/types";
 import { useState } from "react";
+import { useAddTodoMutation, TodosDocument } from "../graphql/generated/types";
 
 export function AddTodoForm() {
   const [title, setTitle] = useState("");
