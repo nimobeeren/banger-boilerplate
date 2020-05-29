@@ -4,7 +4,6 @@
 
 type Mutation {
   createOneTodo(data: TodoCreateInput!): Todo!
-  deleteOneTodo(where: TodoWhereUniqueInput!): Todo
   updateOneTodo(data: TodoUpdateInput!, where: TodoWhereUniqueInput!): Todo
 }
 

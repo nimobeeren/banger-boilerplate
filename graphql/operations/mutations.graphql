@@ -1,0 +1,14 @@
+mutation AddTodo($title: String!) {
+  addTodo: createOneTodo(data: { title: $title, done: false }) {
+    id
+    title
+    done
+  }
+}
+
+mutation SetDone($id: Int!, $done: Boolean!) {
+  setDone: updateOneTodo(where: { id: $id }, data: { done: $done }) {
+    id
+    done
+  }
+}

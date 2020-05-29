@@ -12,7 +12,6 @@ const Mutation = mutationType({
   definition(t) {
     t.crud.createOneTodo();
     t.crud.updateOneTodo();
-    t.crud.deleteOneTodo();
   },
 });
 

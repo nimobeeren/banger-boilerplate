@@ -1,8 +1,6 @@
 features
 
-- add crud
-- little bit of UI
-- possible to generate database from prisma schema? (prisma migrate)
-- consider renaming package scripts (schema -> nexus)
+- graphql config for autocomplete in .graphql files
 - add prisma client to VCS? (possible?) or use checkout hooks
 - auth?
+- rename operations -> documents?
