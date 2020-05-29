@@ -1,7 +1,6 @@
 features
 
-- why is refetchQueries needed for adding todo?
-- move ui stuff to new branch
+- use update instead of refetchQueries
 - little bit of UI
 - graphql config for autocomplete in .graphql files
 - add prisma client to VCS? (possible?) or use checkout hooks

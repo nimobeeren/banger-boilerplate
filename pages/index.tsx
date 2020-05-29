@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { withApollo } from "../lib/apollo";
 import { TodoList } from "../components/TodoList";
-import { CreateTodoForm } from "../components/CreateTodoForm";
+import { AddTodoForm } from "../components/AddTodoForm";
 
 function Home() {
   return (
@@ -12,7 +12,7 @@ function Home() {
       </Head>
 
       <main>
-        <CreateTodoForm />
+        <AddTodoForm />
         <TodoList />
       </main>
 

@@ -1,4 +1,4 @@
-mutation CreateTodo($title: String!) {
+mutation AddTodo($title: String!) {
   createOneTodo(data: { title: $title, done: false }) {
     id
   }

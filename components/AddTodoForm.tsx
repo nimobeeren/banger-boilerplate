@@ -1,12 +1,9 @@
-import {
-  useCreateTodoMutation,
-  TodosDocument,
-} from "../graphql/generated/types";
+import { useAddTodoMutation, TodosDocument } from "../graphql/generated/types";
 import { useState } from "react";
 
-export function CreateTodoForm() {
+export function AddTodoForm() {
   const [title, setTitle] = useState("");
-  const [createTodo] = useCreateTodoMutation({
+  const [addTodo] = useAddTodoMutation({
     refetchQueries: [
       {
         query: TodosDocument,
@@ -18,7 +15,7 @@ export function CreateTodoForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        createTodo({
+        addTodo({
           variables: {
             title,
           },
