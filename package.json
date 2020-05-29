@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "concurrently -n next,generate 'next dev' 'yarn:watch:*'",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext js,ts,tsx",
     "generate": "yarn generate:prisma && yarn generate:nexus && yarn generate:web",
     "generate:prisma": "prisma generate",
     "generate:nexus": "cross-env GENERATE=true ts-node --transpile-only --skip-project graphql/schema/index.ts",
@@ -11,10 +14,7 @@
     "watch": "concurrently 'yarn:watch:*'",
     "watch:prisma": "yarn generate:prisma --watch",
     "watch:nexus": "nodemon -q -w graphql/schema -e ts -x 'yarn generate:nexus'",
-    "watch:web": "yarn generate:web --watch",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint . --ext js,ts,tsx"
+    "watch:web": "yarn generate:web --watch"
   },
   "dependencies": {
     "@graphql-codegen/add": "^1.15.0",
