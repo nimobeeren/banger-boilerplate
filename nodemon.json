@@ -1,5 +1,6 @@
 {
   "events": {
-    "restart": "echo 'Generating GraphQL schema arifacts'"
+    "restart": "echo 'Generating...'",
+    "exit": "echo '✔ Generated GraphQL schema arifacts'"
   }
 }
