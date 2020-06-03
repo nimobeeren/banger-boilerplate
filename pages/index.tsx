@@ -1,16 +1,10 @@
-import Head from "next/head";
-import { withApollo } from "../lib/apollo";
-import { TodoList } from "../components/TodoList";
 import { AddTodoForm } from "../components/AddTodoForm";
+import { TodoList } from "../components/TodoList";
+import { withApollo } from "../lib/apollo";
 
 function Home() {
   return (
     <div>
-      <Head>
-        <title>Banger Boilerplate</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
         <AddTodoForm />
         <TodoList />
