@@ -4,9 +4,9 @@ _Inspired by [nice-boys/product-boilerplate](https://github.com/nice-boys/produc
 
 ## The Stack
 
-- Next.js
-- Apollo Client
-- GraphQL Codegen
-- Nexus Schema
-- Prisma
-- Apollo Server
+- [Next.js](https://nextjs.org/)
+- [Apollo Client](https://www.apollographql.com/docs/react/)
+- [GraphQL Code Generator](https://graphql-code-generator.com/)
+- [Nexus Schema](https://nexus.js.org/)
+- [Prisma](https://www.prisma.io/)
+- [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
