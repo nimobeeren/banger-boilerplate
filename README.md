@@ -8,5 +8,5 @@ _Inspired by [nice-boys/product-boilerplate](https://github.com/nice-boys/produc
 - [Apollo Client](https://www.apollographql.com/docs/react/)
 - [GraphQL Code Generator](https://graphql-code-generator.com/)
 - [Nexus Schema](https://nexus.js.org/)
-- [Prisma](https://www.prisma.io/)
+- [Prisma 2](https://www.prisma.io/)
 - [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
