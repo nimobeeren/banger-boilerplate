@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently -n next,generate 'next dev' 'yarn:watch:*'",
+    "prebuild": "yarn generate:prisma && yarn generate:nexus",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext js,ts,tsx",
