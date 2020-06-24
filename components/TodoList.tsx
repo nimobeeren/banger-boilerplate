@@ -1,4 +1,4 @@
-import { useTodosQuery, useSetDoneMutation } from "../graphql/generated/types";
+import { useTodosQuery, useSetDoneMutation } from "../graphql/generated/codegen";
 
 export function TodoList() {
   const { data, loading, error } = useTodosQuery();

@@ -22,7 +22,7 @@ _Inspired by [nice-boys/product-boilerplate](https://github.com/nice-boys/produc
 │   │   └── ...    // structure doesn't matter
 │   ├── generated/
 │   │   ├── schema.graphql // Nexus schema output
-│   │   └── types.ts       // GraphQL codegen output
+│   │   └── codegen.ts     // GraphQL codegen output
 │   ├── schema/    // code-first schema used by Nexus
 │   │   └── index.ts
 │   ├── createApolloClient.ts
@@ -37,7 +37,7 @@ _Inspired by [nice-boys/product-boilerplate](https://github.com/nice-boys/produc
 ├── prisma/
 │   ├── .env       // db conection details
 │   ├── dev.db     // SQLite database
-│   └── schema.prisma // interface between db and Prisma Client
+│   └── schema.prisma  // interface between db and Prisma Client
 ├── public/
 ├── codegen.yml    // GraphQL codegen config
 ├── next-env.d.ts  // Next.js TypeScript types
