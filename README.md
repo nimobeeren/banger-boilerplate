@@ -81,4 +81,6 @@ Integrates Apollo Client with Next.js. For more information see the [Next.js Apo
 
 ### 📂️ `prisma/`
 
-_TODO_
+#### 📄️ `prisma/schema.prisma`
+
+The [Prisma schema](https://www.prisma.io/docs/concepts/components/prisma-schema).
